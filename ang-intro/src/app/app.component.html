@@ -1,0 +1,51 @@
+<h2> Angular: Session1 </h2>
+
+<p> This is <b>ONE WAY BINDING</b> as value of a is predefined in class file of component(like a =35)</p>
+<p>a : {{a}}</p>
+
+
+<p> This is <b>TWO WAY BINDING</b> as value is changing with change in view or model, this is done using ngModel</p>
+<p><input type=text [(ngModel)]="age" placeholder="Enter Age "/></p>
+<p>Age: {{age}}</p>
+
+<p> This is working of <b>FUNCTION</b>, which is defined in class file of component</p>
+<p>Sum of {{n1}} and {{n2}} is {{n3}}</p>
+<p><input type=text [(ngModel)]="n1" placeholder="Enter number1 "/></p>
+<p><input type=text [(ngModel)]="n2" placeholder="Enter number2 "/></p>
+<button (click)="sum(n1,n2)" >Sum</button>
+
+
+<p> This is working of <b>LOOP</b>, parsing array fruits</p>
+<ul>
+  <li *ngFor="let fruit of fruits">{{fruit}}</li>
+</ul>
+
+
+<p> This is working of <b>IF</b>, checking voter age</p>
+<p>Age: <input type=text [(ngModel)]="age" placeholder="Enter Age "/></p>
+<div *ngIf = "age>=18">
+  <p>Can Vote</p>
+</div>
+<div *ngIf = "age<18">
+  <p>Cannot Vote</p>
+</div>
+
+<p> This is <b>TWO WAY BINDING</b> as value is changing with change in view or model, this is done using Event</p>
+<p><input type="text" (keyup)="eventSalary($event)" /> </p>
+<p>Salary : {{salary}}</p>
+
+
+
+<p> This is <b>CHILD COMPONENT: HOME CONENT</b>, sending data to child through tag variable using @Input()<p>
+<app-home name="Abhishek"></app-home>
+
+<p> This is <b>CHILD COMPONENT: HOME CONENT</b>, sending data to child through app.component using @Input()<p>
+<app-home [name]="nameOfPerson"></app-home>
+
+<p> This is <b>CHILD COMPONENT: CONTACT CONENT</b>, sending data child to parent using @Output() and EventEmitter<p>
+<app-contact (newItemEvent)="addItem($event)"></app-contact>
+
+<ul>
+  <li *ngFor="let item of items">{{item}}
+  </li>
+</ul>
